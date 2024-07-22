@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Title from "../components/ui/Title";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 import Colors from "../constants/color";
+import ButtonContainer from "../components/ui/ButtonContainer";
 function StartGameScreen(props) {
   const [userInput, setUserInput] = useState("");
 
@@ -19,26 +23,30 @@ function StartGameScreen(props) {
       ]);
       return;
     }
-    props.onNumberLoad(chosenNumber)
+    props.onNumberLoad(chosenNumber);
   }
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        value={userInput}
-        onChangeText={userInputHandler}
-      />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onClick={confirmBtnHandler}>Confirm</PrimaryButton>
-        </View>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onClick={resetBtnHandler}>Reset</PrimaryButton>
-        </View>
-      </View>
+    <View style={styles.titleContainer}>
+      <Title>Number Guess</Title>
+      <Card>
+        <InstructionText style={styles.margin10}>Enter a number</InstructionText>
+        <TextInput
+          style={styles.textInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          value={userInput}
+          onChangeText={userInputHandler}
+        />
+        <ButtonContainer>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onClick={confirmBtnHandler}>Confirm</PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onClick={resetBtnHandler}>Reset</PrimaryButton>
+          </View>
+        </ButtonContainer>
+      </Card>
     </View>
   );
 }
@@ -55,26 +63,18 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     fontWeight: "bold",
     textAlign: "center",
-  },
-  buttonsContainer: {
-    flexDirection: "row",
+    color: Colors.secondaryColor_3,
   },
   buttonContainer: {
     flex: 1,
   },
-  inputContainer: {
-    alignItems: "center",
-    padding: 16,
+  titleContainer: {
     marginTop: 100,
-    marginHorizontal: 20,
-    backgroundColor: Colors.primaryColor_1,
-    borderRadius: 8,
-    //Andriod Shadow.
-    elevation: 10,
-    //iOS Shadow.
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
+    marginHorizontal: 25,
+    alignItems: "center",
+    justifyContent: "center",
   },
+  margin10:{
+    marginTop:10
+  }
 });

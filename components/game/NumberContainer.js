@@ -13,17 +13,17 @@ export default NumberContainer;
 
 const styles =StyleSheet.create({
     container:{
-        borderWidth:1,
-        borderColor:'white',
-        padding:24,
-        borderRadius:8,
+        // borderWidth:1,
+        // borderColor:'white',
+        padding:10,
+        // borderRadius:8,
         alignItems:'center',
         justifyContent:'center',
-        margin:24,
+        margin:10,
     },
     numberText:{
         color: Colors.secondaryColor_3,
-        fontSize:28,
-        fontWeight:'bold'
+        fontSize:35,
+        fontFamily:'open-sans-bold'
     }
 });
