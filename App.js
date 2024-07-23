@@ -1,7 +1,8 @@
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import {useFonts} from 'expo-font';
-import AppLoading from 'expo-app-loading'
+// import {useFonts} from 'expo-font';
+// import AppLoading from 'expo-app-loading'
+import { StatusBar } from "expo-status-bar";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
@@ -13,13 +14,13 @@ export default function App() {
   const [gameOver, setGameIsOver] = useState(true)
   const [guessRounds, setGuessRounds] = useState(0)
 
-  const [fontIsLoaded] = useFonts({
-    'open-sans': require('./constants/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./constants/fonts/OpenSans-Bold.ttf')
-  });
-  if(!fontIsLoaded){
+  // const [fontIsLoaded] = useFonts({
+  //   'open-sans': require('./constants/fonts/OpenSans-Regular.ttf'),
+  //   'open-sans-bold': require('./constants/fonts/OpenSans-Bold.ttf')
+  // });
+  // if(!fontIsLoaded){
     // return <AppLoading/>;
-  }
+  // }
   function getNumberHandler(userInput) {
     setHasNumberlLoad(userInput);
     setGameIsOver(false)
@@ -46,6 +47,7 @@ export default function App() {
 
 
   return (
+    <><StatusBar style="light"/>
     <LinearGradient
       colors={[Colors.primaryColor_2, Colors.primaryColor_1]}
       style={styles.appContainer}
@@ -58,7 +60,7 @@ export default function App() {
       >
         <SafeAreaView style={styles.appContainer}>{screen}</SafeAreaView>
       </ImageBackground>
-    </LinearGradient>
+    </LinearGradient></>
   );
 }
 

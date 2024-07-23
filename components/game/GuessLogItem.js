@@ -31,7 +31,7 @@ const styles =StyleSheet.create({
         backgroundColor:Colors.primaryColor_1
     },
     itemText:{
-        fontFamily:'open-sans',
+        // fontFamily:'open-sans',
         color:Colors.primaryColor_2
     }
 });
